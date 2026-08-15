@@ -1,3 +1,7 @@
+body {
+    font-family: 'Inter', sans-serif;
+}
+
 .texto-menor {
     font-size: 13px;
 }
@@ -12,10 +16,97 @@
 
 .botao-lilas {
     background-color: #9353FF;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.botao-lilas:hover {
+    background-color: #7234d6 !important;
+    transform: translateY(-1px);
 }
 
 .verde-limao {
     color: #DAFF01;
+}
+
+/* Estilo das categorias */
+.categoria-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px !important;
+    overflow: hidden;
+    cursor: pointer;
+    border: none !important;
+}
+
+.categoria-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.categoria-card img {
+    transition: transform 0.3s ease;
+    width: 100%;
+}
+
+.categoria-card:hover img {
+    transform: scale(1.06);
+}
+
+.categoria-card .card-header {
+    transition: background-color 0.3s ease;
+}
+
+.categoria-card:hover .card-header {
+    background-color: #9353FF !important;
+}
+
+/* Estilos dos produtos */
+.produto-card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 8px !important;
+    overflow: hidden;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.produto-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.1) !important;
+}
+
+.produto-card img {
+    transition: transform 0.4s ease;
+    width: 100%;
+}
+
+.produto-card:hover img {
+    transform: scale(1.03);
+}
+
+.produto-card .card-body {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.produto-card .card-body .btn {
+    margin-top: auto;
+}
+
+/* Estilos das Lojas */
+.loja-card-wrapper .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.08) !important;
+}
+
+.loja-card-wrapper .card:hover:not(.border-primary) {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08) !important;
+}
+
+.loja-card-wrapper .card.border-primary:hover {
+    transform: translateY(-5px);
 }
 
 @media(min-width: 768px) {

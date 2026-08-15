@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="./assets/favicon.png" type="image/x-icon">
+  <title>Meteora - Promoções</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link rel="stylesheet" href="./estilos.css">
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-md bg-black navbar-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="index.html">
+        <h1 class="m-0"><img class="d-block" src="./assets/logo-meteora.png" alt="Logo da loja Meteora"></h1>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto">
+          <li class="nav-item">
+            <a class="nav-link" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="lojas.html">Lojas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="novidades.html">Novidades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="promocao.html">Promoção</a>
+          </li>
+        </ul>
+        <div class="d-flex align-items-center mt-3 mt-md-0">
+          <button class="btn btn-outline-light rounded-0 border-0 position-relative me-3" data-bs-toggle="modal" data-bs-target="#modalCarrinho" aria-label="Carrinho de compras">
+            <i class="bi bi-bag fs-5"></i>
+            <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger cart-count" style="display: none; font-size: 0.65rem;">0</span>
+          </button>
+          <form class="d-flex mb-0" role="search">
+            <input class="form-control me-2 rounded-0" type="search" placeholder="Digite o produto" aria-label="Pesquisar">
+            <button class="btn btn-outline-light rounded-0" type="submit">Buscar</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container py-4 py-xl-5">
+    <h2 class="text-center mb-4">Ofertas Imperdíveis</h2>
+    <p class="text-center text-secondary mb-5">Aproveite descontos especiais em peças selecionadas para renovar seu guarda-roupa.</p>
+
+    <!-- Seção de Cupom -->
+    <div class="row mb-5 justify-content-center">
+      <div class="col-12 col-md-8 col-lg-6">
+        <div class="card rounded-0">
+          <div class="card-body p-4 text-center">
+            <h5 class="fw-bold mb-3"><i class="bi bi-ticket-perforated text-success me-2"></i>Possui cupom de desconto?</h5>
+            <form id="formCupom" class="d-flex">
+              <input type="text" id="inputCupom" class="form-control rounded-0 me-2 text-uppercase" placeholder="Digite seu cupom (ex: METEORA10)" required>
+              <button type="submit" id="btnAplicarCupom" class="btn btn-dark rounded-0 px-4">Aplicar</button>
+            </form>
+            <div id="bannerCupomStatus" class="mt-3">
+              <!-- Preenchido dinamicamente pelo JS -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Grade de Produtos em Promoção -->
+    <div class="row g-4 justify-content-center">
+      
+      <!-- Promoção 1 -->
+      <div class="col-12 col-md-6 col-lg-4 pb-4">
+        <div class="card produto-card">
+          <span class="badge bg-danger position-absolute top-0 start-0 m-3 rounded-0 px-3 py-2 z-1">20% OFF</span>
+          <img src="./assets/Desktop/produtos/tenis.png" class="card-img-top img-fluid" alt="Tênis Chunky">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Tênis Chunky</h5>
+            <p class="card-text text-secondary">Snicker casual com solado mais alto e modelagem robusta. Modelo unissex.</p>
+            <div class="preco-container mb-3" data-preco-original="250.00" data-preco-promo="200.00">
+              <span class="text-decoration-line-through text-secondary small">De: R$ 250,00</span>
+              <h4 class="fw-bold text-danger mb-0 mt-1">Por: <span class="preco-atual">R$ 200,00</span></h4>
+            </div>
+            <button type="button" class="btn btn-primary botao-lilas rounded-0 border-0 w-100 py-2 btn-ver-mais" 
+              data-nome="Tênis Chunky" 
+              data-preco="R$ 200,00" 
+              data-descricao="Snicker casual com solado mais alto e modelagem robusta. Modelo unissex. Excelente para compor looks urbanos e despojados sem abrir mão do conforto no dia a dia."
+              data-img="./assets/Desktop/produtos/tenis.png">
+              Ver mais
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promoção 2 -->
+      <div class="col-12 col-md-6 col-lg-4 pb-4">
+        <div class="card produto-card">
+          <span class="badge bg-danger position-absolute top-0 start-0 m-3 rounded-0 px-3 py-2 z-1">20% OFF</span>
+          <img src="./assets/Desktop/produtos/calca.png" class="card-img-top img-fluid" alt="Calça Alfaiataria">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Calça Alfaiataria</h5>
+            <p class="card-text text-secondary">Modelo Wide Leg alfaiataria em linho. Uma peça para vida toda!</p>
+            <div class="preco-container mb-3" data-preco-original="180.00" data-preco-promo="144.00">
+              <span class="text-decoration-line-through text-secondary small">De: R$ 180,00</span>
+              <h4 class="fw-bold text-danger mb-0 mt-1">Por: <span class="preco-atual">R$ 144,00</span></h4>
+            </div>
+            <button type="button" class="btn btn-primary botao-lilas rounded-0 border-0 w-100 py-2 btn-ver-mais" 
+              data-nome="Calça Alfaiataria" 
+              data-preco="R$ 144,00" 
+              data-descricao="Modelo Wide Leg alfaiataria em linho. Uma peça estilosa, clássica e versátil para a vida toda. Tecido de alta qualidade que proporciona conforto térmico incomparável."
+              data-img="./assets/Desktop/produtos/calca.png">
+              Ver mais
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Promoção 3 -->
+      <div class="col-12 col-md-6 col-lg-4 pb-4">
+        <div class="card produto-card">
+          <span class="badge bg-danger position-absolute top-0 start-0 m-3 rounded-0 px-3 py-2 z-1">20% OFF</span>
+          <img src="./assets/Desktop/produtos/jaqueta-jeans.png" class="card-img-top img-fluid" alt="Jaqueta Jeans">
+          <div class="card-body">
+            <h5 class="card-title fw-bold">Jaqueta Jeans</h5>
+            <p class="card-text text-secondary">Modelo unissex oversized com gola de camurça. Atemporal e autêntica!</p>
+            <div class="preco-container mb-3" data-preco-original="150.00" data-preco-promo="120.00">
+              <span class="text-decoration-line-through text-secondary small">De: R$ 150,00</span>
+              <h4 class="fw-bold text-danger mb-0 mt-1">Por: <span class="preco-atual">R$ 120,00</span></h4>
+            </div>
+            <button type="button" class="btn btn-primary botao-lilas rounded-0 border-0 w-100 py-2 btn-ver-mais" 
+              data-nome="Jaqueta Jeans" 
+              data-preco="R$ 120,00" 
+              data-descricao="Modelo unissex oversized com gola de camurça. Atemporal, autêntica e perfeita para sobreposições estilosas em dias amenos. Tecido jeans resistente com lavagem clássica."
+              data-img="./assets/Desktop/produtos/jaqueta-jeans.png">
+              Ver mais
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <section class="pb-4 bg-black text-bg-dark">
+    <h2 class="text-center py-3">Conheça todas as nossas facilidades</h2>
+    <div class="d-flex flex-column flex-lg-row align-items-center justify-content-center gap-3 px-3">
+      <div class="divs-facilidades d-flex align-items-center">
+        <div><i class="verde-limao bi bi-x-diamond fs-1"></i></div>
+        <div>
+          <div class="ms-3 mb-1 verde-limao">PAGUE PELO PIX</div>
+          <div class="texto-menor ms-3">Ganhe 5% OFF em pagamentos via PIX</div>
+        </div>
+      </div>
+
+      <div class="divs-facilidades d-flex">
+        <div><i class="verde-limao bi bi-arrow-repeat fs-1"></i></div>
+        <div>
+          <div class="ms-3 mb-1 verde-limao">TROCA GRÁTIS</div>
+          <div class="texto-menor ms-3">Fique livre para trocar em até 30 dias.</div>
+        </div>
+      </div>
+
+      <div class="divs-facilidades d-flex">
+        <div><i class="verde-limao bi bi-flower1 fs-1"></i></div>
+        <div>
+          <div class="ms-3 mb-1 verde-limao">SUSTENTABILIDADE</div>
+          <div class="texto-menor ms-3">Moda responsável, que respeita o meio ambiente.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <form class="container border border-secondary my-3 my-xl-5 p-3 text-center div-novidades mx-auto">
+    <h5>
+      Quer receber nossas novidades, promoções exclusivas e 10% OFF na primeira compra? Cadastre-se!
+    </h5>
+    <div class="input-group my-3">
+      <input type="email" class="form-control border-secondary rounded-0" placeholder="Digite seu e-mail"
+        aria-label="Digite seu e-mail" aria-describedby="button-addon2" />
+      <button type="button" class="btn btn-primary botao-lilas rounded-0 border-0 " id="button-addon2">Enviar</button>
+    </div>
+  </form>
+
+  <footer class="text-center bg-black text-bg-dark">
+    <p class="card-text py-3"> Jonas Emir Francisco | Projeto de Curso</p>
+  </footer>
+
+  <!-- Modal de Detalhes do Produto -->
+  <div class="modal fade" id="modalProduto" tabindex="-1" aria-labelledby="modalProdutoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-0">
+        <div class="modal-header bg-black text-white rounded-0 border-0">
+          <h5 class="modal-title" id="modalProdutoLabel">Detalhes do Produto</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body p-4">
+          <div class="row">
+            <div class="col-md-6 mb-3 mb-md-0 d-flex align-items-center justify-content-center">
+              <img id="modalImg" src="" class="img-fluid border" alt="" style="max-height: 380px; object-fit: contain;">
+            </div>
+            <div class="col-md-6 d-flex flex-column justify-content-between">
+              <div>
+                <h4 id="modalNome" class="fw-bold mb-2"></h4>
+                <p id="modalPreco" class="fs-4 fw-bold text-primary mb-3" style="color: #9353FF !important;"></p>
+                <p id="modalDescricao" class="text-secondary mb-4 small"></p>
+                
+                <hr>
+
+                <div class="mb-3">
+                  <span class="fw-bold d-block mb-2">Tamanho:</span>
+                  <div class="btn-group" role="group">
+                    <input type="radio" class="btn-check" name="btn-tamanho" id="btn-p" autocomplete="off" checked>
+                    <label class="btn btn-outline-secondary rounded-0 btn-sm" for="btn-p">P</label>
+                    <input type="radio" class="btn-check" name="btn-tamanho" id="btn-m" autocomplete="off">
+                    <label class="btn btn-outline-secondary rounded-0 btn-sm" for="btn-m">M</label>
+                    <input type="radio" class="btn-check" name="btn-tamanho" id="btn-g" autocomplete="off">
+                    <label class="btn btn-outline-secondary rounded-0 btn-sm" for="btn-g">G</label>
+                    <input type="radio" class="btn-check" name="btn-tamanho" id="btn-gg" autocomplete="off">
+                    <label class="btn btn-outline-secondary rounded-0 btn-sm" for="btn-gg">GG</label>
+                  </div>
+                </div>
+
+                <div class="mb-4">
+                  <span class="fw-bold d-block mb-2">Cor:</span>
+                  <div class="btn-group" role="group">
+                    <input type="radio" class="btn-check" name="btn-cor" id="btn-cor1" autocomplete="off" checked>
+                    <label class="btn btn-outline-dark rounded-0 btn-sm px-3" for="btn-cor1">Padrão</label>
+                    <input type="radio" class="btn-check" name="btn-cor" id="btn-cor2" autocomplete="off">
+                    <label class="btn btn-outline-dark rounded-0 btn-sm px-3" for="btn-cor2">Alternativa</label>
+                  </div>
+                </div>
+              </div>
+              
+              <button class="btn btn-primary botao-lilas w-100 rounded-0 border-0 py-2 mt-2 btn-add-carrinho" data-bs-dismiss="modal">Adicionar ao Carrinho</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal de Carrinho de Compras -->
+  <div class="modal fade" id="modalCarrinho" tabindex="-1" aria-labelledby="modalCarrinhoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content rounded-0">
+        <div class="modal-header bg-black text-white rounded-0 border-0">
+          <h5 class="modal-title font-monospace fw-bold" id="modalCarrinhoLabel"><i class="bi bi-bag-check me-2"></i>Seu Carrinho</h5>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Fechar"></button>
+        </div>
+        <div class="modal-body p-4" style="max-height: 400px; overflow-y: auto;" id="carrinhoItens">
+          <!-- Itens serão renderizados dinamicamente pelo JS -->
+        </div>
+        <div class="modal-footer d-flex justify-content-between align-items-center bg-light border-top rounded-0">
+          <div>
+            <span class="text-secondary small">Total Estimado:</span>
+            <h4 class="fw-bold text-dark mb-0" id="carrinhoTotal">R$ 0,00</h4>
+          </div>
+          <div class="d-flex gap-2">
+            <button type="button" class="btn btn-outline-secondary rounded-0 btn-sm" data-bs-dismiss="modal">Continuar Comprando</button>
+            <button type="button" class="btn btn-primary botao-lilas rounded-0 btn-sm border-0 px-3" data-bs-dismiss="modal" onclick="alert('Pedido finalizado com sucesso! (Simulação)')">Finalizar Compra</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+    crossorigin="anonymous"></script>
+  <script src="./main.js"></script>
+</body>
+
+</html>

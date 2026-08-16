@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', () => {
     inicializarLojasFavoritas();
     inicializarNovidadesLikes();
     inicializarPromocoesDesconto();
+    inicializarCategoriaModal();
 });
 
 function inicializarCarrinho() {
@@ -449,4 +450,154 @@ function exibirNotificacaoToast(mensagem, tipo = 'success') {
     const toastEl = document.getElementById('toastNotification');
     const toast = new bootstrap.Toast(toastEl, { delay: 4000 });
     toast.show();
+}
+
+let cacheCategoriasData = null;
+
+async function obterProdutosCategoria(categoriaKey) {
+    if (!cacheCategoriasData) {
+        try {
+            const response = await fetch('./produtos-categoria.json');
+            cacheCategoriasData = await response.json();
+        } catch (error) {
+            console.error('Erro ao buscar dados das categorias:', error);
+            return [];
+        }
+    }
+    return cacheCategoriasData[categoriaKey] || [];
+}
+
+function inicializarCategoriaModal() {
+    const categoriaCards = document.querySelectorAll('.categoria-card');
+    const modalElement = document.getElementById('modalCategoria');
+    const modalNomeEl = document.getElementById('modalCategoriaNome');
+    const produtosContainer = document.getElementById('categoriaProdutosContainer');
+    
+    if (!modalElement || categoriaCards.length === 0) return;
+    
+    const modalCategoria = new bootstrap.Modal(modalElement);
+    
+    categoriaCards.forEach(card => {
+        card.addEventListener('click', async () => {
+            const categoriaKey = card.getAttribute('data-categoria');
+            const categoriaNome = card.querySelector('.card-text').textContent.trim();
+            
+            modalNomeEl.textContent = categoriaNome;
+            produtosContainer.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border text-primary" role="status">
+                        <span class="visually-hidden">Carregando...</span>
+                    </div>
+                </div>
+            `;
+            
+            modalCategoria.show();
+            
+            const produtos = await obterProdutosCategoria(categoriaKey);
+            
+            if (produtos.length === 0) {
+                produtosContainer.innerHTML = `
+                    <div class="col-12 text-center py-5 text-secondary">
+                        <i class="bi bi-info-circle fs-1 d-block mb-2"></i>
+                        Nenhum produto cadastrado para esta categoria no momento.
+                    </div>
+                `;
+                return;
+            }
+            
+            produtosContainer.innerHTML = '';
+            
+            const cupomAplicado = sessionStorage.getItem('cupom_ativo') === 'true';
+            const newsletterInscrito = sessionStorage.getItem('newsletter_signed') === 'true';
+            const temDesconto = cupomAplicado || newsletterInscrito;
+            
+            produtos.forEach(prod => {
+                let badgeHtml = '';
+                let precoExibicaoHtml = '';
+                let precoFinalTexto = prod.preco;
+                
+                if (prod.promocao) {
+                    if (temDesconto) {
+                        const precoNumerico = parseFloat(prod.preco.replace('R$', '').replace(',', '.').trim());
+                        const precoComDesconto = precoNumerico * 0.9;
+                        precoFinalTexto = `R$ ${precoComDesconto.toFixed(2).replace('.', ',')}`;
+                        precoExibicaoHtml = `Por: <span class="text-danger fw-bold">${precoFinalTexto}</span> <span class="badge bg-success ms-1" style="font-size: 0.65rem;">+10% OFF</span>`;
+                        badgeHtml = `<span class="badge bg-danger position-absolute top-0 start-0 m-3 rounded-0 px-3 py-2 z-1">${prod.desconto} + 10%</span>`;
+                    } else {
+                        precoExibicaoHtml = `Por: <span class="text-danger fw-bold">${prod.preco}</span>`;
+                        badgeHtml = `<span class="badge bg-danger position-absolute top-0 start-0 m-3 rounded-0 px-3 py-2 z-1">${prod.desconto}</span>`;
+                    }
+                } else {
+                    precoExibicaoHtml = `<span class="text-dark fw-bold">${prod.preco}</span>`;
+                }
+                
+                const precoOriginalHtml = prod.precoOriginal ? `<span class="text-decoration-line-through text-secondary small">De: ${prod.precoOriginal}</span><br>` : '';
+                
+                const cardHtml = `
+                    <div class="col-12 col-md-6 col-lg-4 pb-4">
+                        <div class="card produto-card h-100 position-relative">
+                            ${badgeHtml}
+                            <div class="overflow-hidden bg-light d-flex align-items-center justify-content-center" style="height: 250px;">
+                                <img src="${prod.img}" class="img-fluid" alt="${prod.nome}" style="max-height: 100%; object-fit: contain;">
+                            </div>
+                            <div class="card-body d-flex flex-column">
+                                <h5 class="card-title fw-bold">${prod.nome}</h5>
+                                <p class="card-text text-secondary small flex-grow-1">${prod.descricao}</p>
+                                <div class="preco-container mb-3">
+                                    ${precoOriginalHtml}
+                                    <h5 class="fw-bold mb-0 mt-1">${precoExibicaoHtml}</h5>
+                                </div>
+                                <button type="button" class="btn btn-primary botao-lilas rounded-0 border-0 w-100 py-2 btn-ver-mais-categoria" 
+                                  data-nome="${prod.nome}" 
+                                  data-preco="${precoFinalTexto}" 
+                                  data-descricao="${prod.descricao}" 
+                                  data-img="${prod.img}">
+                                  Ver mais
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                produtosContainer.insertAdjacentHTML('beforeend', cardHtml);
+            });
+            
+            // Add click listeners to "Ver mais" buttons in the category modal
+            produtosContainer.querySelectorAll('.btn-ver-mais-categoria').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    
+                    // Hide the category modal
+                    modalCategoria.hide();
+                    
+                    // Read data
+                    const nome = btn.getAttribute('data-nome');
+                    const preco = btn.getAttribute('data-preco');
+                    const descricao = btn.getAttribute('data-descricao');
+                    const img = btn.getAttribute('data-img');
+                    
+                    // Populate modalProduto
+                    const modalProdutoEl = document.getElementById('modalProduto');
+                    const modalImg = document.getElementById('modalImg');
+                    const modalNome = document.getElementById('modalNome');
+                    const modalPreco = document.getElementById('modalPreco');
+                    const modalDescricao = document.getElementById('modalDescricao');
+                    
+                    modalNome.textContent = nome;
+                    modalPreco.textContent = preco;
+                    modalDescricao.textContent = descricao;
+                    modalImg.src = img;
+                    modalImg.alt = `Imagem de ${nome}`;
+                    
+                    const radioP = document.getElementById('btn-p');
+                    if (radioP) radioP.checked = true;
+                    const radioCor1 = document.getElementById('btn-cor1');
+                    if (radioCor1) radioCor1.checked = true;
+                    
+                    // Show modalProduto
+                    const modalProdutoObj = bootstrap.Modal.getOrCreateInstance(modalProdutoEl);
+                    modalProdutoObj.show();
+                });
+            });
+        });
+    });
 }

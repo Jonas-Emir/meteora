@@ -1,0 +1,151 @@
+{
+  "camisetas": [
+    {
+      "nome": "Camiseta Over Verde",
+      "precoOriginal": "R$ 90,00",
+      "preco": "R$ 72,00",
+      "descricao": "Camiseta oversized em algodão verde oliva com acabamento premium e caimento despojado. Conforto e atitude para seu visual urbano.",
+      "img": "https://images.unsplash.com/photo-1521572267360-ee0c2909d518?q=80&w=600&auto=format&fit=crop",
+      "promocao": true,
+      "desconto": "20% OFF",
+      "tamanhos": ["P", "M", "G", "GG"],
+      "cores": ["Verde", "Preto"]
+    },
+    {
+      "nome": "Camiseta Basic White",
+      "precoOriginal": null,
+      "preco": "R$ 49,90",
+      "descricao": "A camiseta branca clássica que não pode faltar no seu guarda-roupa. Confeccionada em algodão 100% de alta qualidade, super macia.",
+      "img": "https://images.unsplash.com/photo-1581655353564-df123a1eb820?q=80&w=600&auto=format&fit=crop",
+      "promocao": false,
+      "tamanhos": ["P", "M", "G"],
+      "cores": ["Branco", "Cinza"]
+    },
+    {
+      "nome": "Camiseta Estampada Sunset",
+      "precoOriginal": "R$ 79,90",
+      "preco": "R$ 59,90",
+      "descricao": "Camiseta com estampa conceitual inspirada no pôr do sol. Tecido leve, corte moderno e costura reforçada nos ombros.",
+      "img": "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=600&auto=format&fit=crop",
+      "promocao": true,
+      "desconto": "25% OFF",
+      "tamanhos": ["P", "M", "G", "GG"],
+      "cores": ["Laranja", "Preto"]
+    }
+  ],
+  "bolsas": [
+    {
+      "nome": "Bolsa Couro Vintage",
+      "precoOriginal": null,
+      "preco": "R$ 180,00",
+      "descricao": "Bolsa tiracolo em couro legítimo marrom. Divisórias internas funcionais, ferragens em banho envelhecido e alça regulável.",
+      "img": "https://images.unsplash.com/photo-1590874103328-eac38a683ce7?q=80&w=600&auto=format&fit=crop",
+      "promocao": false,
+      "tamanhos": ["Único"],
+      "cores": ["Marrom", "Pinhão"]
+    },
+    {
+      "nome": "Bolsa Tote Casual",
+      "precoOriginal": "R$ 149,00",
+      "preco": "R$ 119,00",
+      "descricao": "Bolsa estilo tote perfeita para o dia a dia. Espaçosa e estilosa, conta com fechamento magnético e bolso interno com zíper.",
+      "img": "https://images.unsplash.com/photo-1584917865442-de89df76afd3?q=80&w=600&auto=format&fit=crop",
+      "promocao": true,
+      "desconto": "20% OFF",
+      "tamanhos": ["Único"],
+      "cores": ["Camel", "Preto"]
+    }
+  ],
+  "calcados": [
+    {
+      "nome": "Tênis Sport Active",
+      "precoOriginal": null,
+      "preco": "R$ 220,00",
+      "descricao": "Tênis esportivo ultra leve com solado amortecedor. Ideal para caminhadas, treinos leves ou para um dia a dia super dinâmico.",
+      "img": "https://images.unsplash.com/photo-1549298916-b41d501d3772?q=80&w=600&auto=format&fit=crop",
+      "promocao": false,
+      "tamanhos": ["35", "36", "37", "38", "39", "40", "41", "42"],
+      "cores": ["Cinza/Azul", "Preto"]
+    },
+    {
+      "nome": "Tênis Chunky Pastel",
+      "precoOriginal": "R$ 269,90",
+      "preco": "R$ 199,90",
+      "descricao": "Tênis de solado robusto com paleta de cores pastéis modernas. O queridinho do streetwear que une conforto e muito estilo.",
+      "img": "https://images.unsplash.com/photo-1595950653106-6c9ebd614d3a?q=80&w=600&auto=format&fit=crop",
+      "promocao": true,
+      "desconto": "25% OFF",
+      "tamanhos": ["34", "35", "36", "37", "38", "39"],
+      "cores": ["Multicolor", "Branco"]
+    }
+  ],
+  "calcas": [
+    {
+      "nome": "Calça Jeans Comfort",
+      "precoOriginal": null,
+      "preco": "R$ 110,00",
+      "descricao": "Calça jeans com lavagem clássica e modelagem reta confortável. Possui elastano na composição para máxima flexibilidade.",
+      "img": "https://images.unsplash.com/photo-1541099649105-f69ad21f3246?q=80&w=600&auto=format&fit=crop",
+      "promocao": false,
+      "tamanhos": ["36", "38", "40", "42", "44", "46"],
+      "cores": ["Azul Claro", "Azul Escuro"]
+    },
+    {
+      "nome": "Calça Linen Wide Leg",
+      "precoOriginal": "R$ 180,00",
+      "preco": "R$ 144,00",
+      "descricao": "Calça wide leg confeccionada em mescla de linho e viscose. Caimento fluído, toque macio e super fresca para os dias quentes.",
+      "img": "https://images.unsplash.com/photo-1594633312681-425c7b97ccd1?q=80&w=600&auto=format&fit=crop",
+      "promocao": true,
+      "desconto": "20% OFF",
+      "tamanhos": ["36", "38", "40", "42"],
+      "cores": ["Bege", "Off-White"]
+    }
+  ],
+  "casacos": [
+    {
+      "nome": "Casaco de Lã Clássico",
+      "precoOriginal": null,
+      "preco": "R$ 280,00",
+      "descricao": "Sobretudo estruturado em lã batida sintética. Modelagem clássica com botões frontais, perfeito para criar looks sofisticados no inverno.",
+      "img": "https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=600&auto=format&fit=crop",
+      "promocao": false,
+      "tamanhos": ["P", "M", "G", "GG"],
+      "cores": ["Preto", "Bege"]
+    },
+    {
+      "nome": "Jaqueta Jeans Vintage",
+      "precoOriginal": "R$ 150,00",
+      "preco": "R$ 120,00",
+      "descricao": "Jaqueta jeans com lavagem estonada vintage e modelagem levemente oversized. Botões metálicos e quatro bolsos frontais.",
+      "img": "https://images.unsplash.com/photo-1576995853123-5a10305d93c0?q=80&w=600&auto=format&fit=crop",
+      "promocao": true,
+      "desconto": "20% OFF",
+      "tamanhos": ["P", "M", "G", "GG"],
+      "cores": ["Jeans Claro", "Jeans Escuro"]
+    }
+  ],
+  "oculos": [
+    {
+      "nome": "Óculos de Sol Retro",
+      "precoOriginal": null,
+      "preco": "R$ 89,90",
+      "descricao": "Óculos de sol estilo retrô com armação em acetato de alta resistência e lentes com proteção UV400 completa.",
+      "img": "https://images.unsplash.com/photo-1572635196237-14b3f281503f?q=80&w=600&auto=format&fit=crop",
+      "promocao": false,
+      "tamanhos": ["Único"],
+      "cores": ["Tartaruga", "Preto"]
+    },
+    {
+      "nome": "Óculos Aviador Gold",
+      "precoOriginal": "R$ 149,90",
+      "preco": "R$ 119,90",
+      "descricao": "Óculos de sol modelo aviador com armação metálica dourada super fina e leve. Lentes pretas com proteção UV400.",
+      "img": "https://images.unsplash.com/photo-1511499767150-a48a237f0083?q=80&w=600&auto=format&fit=crop",
+      "promocao": true,
+      "desconto": "20% OFF",
+      "tamanhos": ["Único"],
+      "cores": ["Dourado", "Prata"]
+    }
+  ]
+}
